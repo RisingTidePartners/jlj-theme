@@ -1,7 +1,7 @@
 body {
   font-family: "acumin-pro-wide", sans-serif;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 12.5px;
 }
 
 h1,
@@ -12,5 +12,34 @@ h5,
 h6,
 p {
   font-weight: inherit;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
+}
+
+h1,
+h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+p,
+.rte {
+  line-height: 22px;
+}
+
+hr {
+  display: block;
+  position: relative;
+  width: 24px;
+  margin: 16px auto 21px;
+  border-top: 1px solid;
+  border-bottom: 0;
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: -4px;
+    left: 3px;
+    right: 3px;
+    border-top: 1px solid;
+  }
 }

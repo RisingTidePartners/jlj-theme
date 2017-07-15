@@ -10,16 +10,3 @@ html {
   padding: 0 $gutter;
   margin: 0 auto;
 }
-
-.site-sidebar {
-  width: 238px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  background: $color-primary;
-}
-
-.site-content {
-  margin: 30px 30px 30px 268px;
-}
