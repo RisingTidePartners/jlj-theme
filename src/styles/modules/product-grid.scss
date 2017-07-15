@@ -1,0 +1,38 @@
+.product-grid {
+  display: flex;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.product-grid-item {
+  padding: 0 15px;
+  margin-top: 30px;
+  width: 33.333%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.product-grid-item-info {
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: $color-primary;
+  }
+}
+
+.product-grid-item-title,
+.product-grid-item-price {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product-grid-item-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-right: 15px;
+}
