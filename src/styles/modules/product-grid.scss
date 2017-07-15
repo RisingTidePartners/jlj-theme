@@ -2,12 +2,15 @@
   display: flex;
   margin-right: -15px;
   margin-left: -15px;
+  flex-wrap: wrap;
 }
 
 .product-grid-item {
   padding: 0 15px;
   margin-top: 30px;
   width: 33.333%;
+  flex-shrink: 0;
+  flex-grow: 0;
 
   img {
     width: 100%;
