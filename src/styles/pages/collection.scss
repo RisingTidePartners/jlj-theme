@@ -1,0 +1,19 @@
+.collection-header {
+  display: flex;
+}
+
+.collection-image {
+  width: 66%;
+  flex-shrink: 0;
+  font-size: 0;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.collection-text {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
