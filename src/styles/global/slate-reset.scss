@@ -42,10 +42,6 @@ label[for] {
   cursor: pointer;
 }
 
-optgroup {
-  font-weight: $font-weight-bold;
-}
-
 // Force option color (affects IE only)
 option {
   color: $color-body-text;
