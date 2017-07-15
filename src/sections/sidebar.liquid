@@ -1,24 +1,14 @@
 <div data-section-type="header-section" class="site-sidebar">
   <header role="banner">
-    {% if template.name == 'index' %}
-      <h1 itemscope itemtype="http://schema.org/Organization">
-    {% else %}
-      <div class="h1" itemscope itemtype="http://schema.org/Organization">
-    {% endif %}
-        <a href="/" itemprop="url" class="site-logo">
+    
+    <div class="sidebar-logo" itemscope itemtype="http://schema.org/Organization">
+      <a href="/" itemprop="url" class="site-logo">
+        <img src="{{ 'logo.png' | asset_url }}">
+        {% if template.name == 'index' %}<h1>{% else %}<span class="h1">{% endif %}
           {{ shop.name }}
-        </a>
-    {% if template.name == 'index' %}
-      </h1>
-    {% else %}
-      </div>
-    {% endif %}
-
-    <a href="/cart">
-      {% include 'icon-cart' %}
-      {{ 'layout.cart.title' | t }}
-      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-    </a>
+        {% if template.name == 'index' %}</h1>{% else %}</span>{% endif %}
+      </a>
+    </div>
 
     {% if shop.customer_accounts_enabled %}
       <ul>
@@ -90,6 +80,25 @@
       {% endfor %}
     </ul>
   </nav>
+
+  {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+  <ul class="social-icons">
+    {% for social in social_accounts %}
+      {%- assign social_handle = social | handleize -%}
+      {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+      {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+      {% if settings[social_link] != blank %}
+        <li>
+          <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+            {% include social_icon %}
+            <span class="icon-fallback-text">{{ social }}</span>
+          </a>
+        </li>
+      {% endif %}
+
+    {% endfor %}
+  </ul>
 </div>
 
 {% schema %}

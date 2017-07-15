@@ -3,6 +3,7 @@
   top: 0;
   bottom: 0;
   left: 0;
+  padding: 30px;
   position: fixed;
   background: $color-primary;
   color: #fff;
@@ -18,5 +19,25 @@
     margin: 32px 0;
     padding: 0;
     text-transform: uppercase;
+  }
+}
+
+.social-icons {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+
+  a {
+    opacity: 0.7;
+    transiton: opacity 0.2s;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 12px 0 0;
   }
 }

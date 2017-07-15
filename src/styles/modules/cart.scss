@@ -1,0 +1,14 @@
+.cart-link {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  color: $color-primary;
+  text-decoration: none;
+
+  .icon {
+    width: 23px;
+    height: 29px;
+    margin-right: 5px;
+    margin-top: -6px;
+  }
+}

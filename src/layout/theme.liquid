@@ -68,6 +68,14 @@
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
+  <a href="/cart" class="cart-link">
+    {% include 'icon-cart' %}
+    <span class="visually-hidden">
+      {{ 'layout.cart.title' | t }}
+    </span>
+    ({{ cart.item_count }})
+  </a>
+
   {% section 'sidebar' %}
 
   <div class="site-content" role="main" id="MainContent">
