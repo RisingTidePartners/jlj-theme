@@ -1,6 +1,10 @@
 {% paginate collection.products by 12 %}
   <header role="banner">
+    {% if collection.image %}
+      <img src="{{ collection.image | img_url: "1024x1024" }}" alt="{{ collection.image.alt }}">
+    {% endif %}
     <h1>{{ collection.title }}</h1>
+    <hr>
     {% if collection.description != blank %}
       <div class="rte">
         {{ collection.description }}
