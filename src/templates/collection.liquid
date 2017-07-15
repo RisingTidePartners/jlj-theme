@@ -2,10 +2,10 @@
   <header role="banner" class="collection-header">
     {% if collection.image %}
     <div class="collection-image">
-      <img  src="{{ collection.image | img_url: "1024x1024" }}" alt="{{ collection.image.alt }}">
+      <img src="{{ collection.image | img_url: "1024x1024" }}" alt="{{ collection.image.alt }}">
     </div>
     {% endif %}
-    <div class="collection-text dark-box">
+    <div class="collection-text {% if collection.image %}dark-box{% endif %}">
       <div class="text-block">
         <h1>{{ collection.title }}</h1>
         <hr>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    {% comment %}  
+    {% comment %}
       {% if collection.all_tags.size > 0 %}
         <ul>
           {% for tag in collection.all_tags %}
