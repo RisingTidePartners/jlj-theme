@@ -10,77 +10,77 @@
   {
     "name": "Social media",
     "settings": [
+      // {
+      //   "type": "header",
+      //   "content": "Social sharing options"
+      // },
+      // {
+      //   "type": "checkbox",
+      //   "id": "social_sharing_blog",
+      //   "label": "Enable sharing for blog articles",
+      //   "default": true
+      // },
+      // {
+      //   "type": "checkbox",
+      //   "id": "share_facebook",
+      //   "label": "Share on Facebook",
+      //   "default": true
+      // },
+      // {
+      //   "type": "checkbox",
+      //   "id": "share_twitter",
+      //   "label": "Tweet on Twitter",
+      //   "default": true
+      // },
+      // {
+      //   "type": "checkbox",
+      //   "id": "share_pinterest",
+      //   "label": "Pin on Pinterest",
+      //   "default": true
+      // },
       {
         "type": "header",
-        "content": "Social sharing options"
-      },
-      {
-        "type": "checkbox",
-        "id": "social_sharing_blog",
-        "label": "Enable sharing for blog articles",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "share_facebook",
-        "label": "Share on Facebook",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "share_twitter",
-        "label": "Tweet on Twitter",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "share_pinterest",
-        "label": "Pin on Pinterest",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Sharing links"
+        "content": "Social media accounts"
       },
       {
         "type": "text",
         "id": "social_twitter_link",
-        "label": "Twitter link"
+        "label": "Twitter URL"
       },
       {
         "type": "text",
         "id": "social_facebook_link",
-        "label": "Facebook link"
+        "label": "Facebook URL"
       },
       {
         "type": "text",
         "id": "social_pinterest_link",
-        "label": "Pinterest link"
+        "label": "Pinterest URL"
       },
       {
         "type": "text",
         "id": "social_instagram_link",
-        "label": "Instagram link"
+        "label": "Instagram URL"
       },
       {
         "type": "text",
         "id": "social_snapchat_link",
-        "label": "Snapchat link"
+        "label": "Snapchat URL"
       },
       {
         "type": "text",
         "id": "social_tumblr_link",
-        "label": "Tumblr link"
+        "label": "Tumblr URL"
       },
       {
         "type": "text",
         "id": "social_youtube_link",
-        "label": "Youtube link"
+        "label": "Youtube URL"
       },
       {
         "type": "text",
         "id": "social_vimeo_link",
-        "label": "Vimeo link"
+        "label": "Vimeo URL"
       }
     ]
   }
