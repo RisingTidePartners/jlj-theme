@@ -1,0 +1,53 @@
+<div>
+  {% for block in section.blocks %}
+  <div class="grid-item" {{ block.shopify_attributes }}>
+    {% case block.type %}
+
+      {% when 'lookbook-image' %}
+      
+        {% if block.settings.image %}
+          {{ block.settings.image | img_url: "1024x1024" | img_tag }}
+        {% endif %}
+
+        {% if block.settings.collection %}
+          {%- assign collection = collections[block.settings.collection] -%}
+
+          <a href="{{ collection.url }}">{{ collection.title }}</a>
+        {% endif %}
+
+        {% if block.settings.caption %}
+          {{ block.settings.caption }}
+        {% endif %}
+
+    {% endcase %}
+  </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "blocks": [
+      {
+        "type": "lookbook-image",
+        "name": "Lookbook Image",
+        "settings": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "type": "richtext",
+            "id": "caption",
+            "label": "Caption"
+          },
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
