@@ -1,0 +1,21 @@
+.home-slide {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: no-repeat center center / cover;
+
+	h2 {
+		position: absolute;
+		margin: 0;
+		bottom: 30px;
+		right: 30px;
+		color: #fff;
+		padding: 15px 20px 18px;
+		background: $color-primary;
+		min-width: 362px;
+		font-size: 23px;
+		text-align: center;
+	}
+}

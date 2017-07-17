@@ -1,0 +1,50 @@
+<style>
+  .home-slide-{{ section.id }} {
+    background-image: url('{{ section.settings.image | img_url: "1024x1024" }}');
+  }
+
+  @media screen and (min-width: 1024px) {
+    .home-slide-{{ section.id }} {
+      background-image: url('{{ section.settings.image | img_url: "2048x2048" }}');
+    }
+  }
+</style>
+
+<div class="home-slide home-slide-{{ section.id }}">
+  <a href="{{ section.settings.link_url }}">
+    <h2 class="dark-box">
+      {{ section.settings.link_text }}
+    </h2>
+  </a>
+</div>
+
+{% schema %}
+  {
+    "name": "Homepage Slide",
+    "settings": [
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "link_text",
+        "type": "text",
+        "label": "Link Text",
+        "default": "Link Text"
+      },
+      {
+        "id": "link_url",
+        "type": "text",
+        "label": "Link URL",
+        "default": "/pages/lookbook"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Homepage Slide",
+        "category": "Homepage"
+      }
+    ]
+  }
+{% endschema %}

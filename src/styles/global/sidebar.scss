@@ -7,6 +7,7 @@
   position: fixed;
   background: $color-primary;
   color: #fff;
+  z-index: 2;
 
   a {
     color: #fff;
@@ -20,6 +21,10 @@
     padding: 0;
     text-transform: uppercase;
   }
+}
+
+.template-index .site-sidebar {
+  background: none;
 }
 
 .social-icons {
