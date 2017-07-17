@@ -1,15 +1,21 @@
 .cart-link {
   position: absolute;
-  right: 30px;
-  top: 30px;
-  color: $color-primary;
+  right: 16px;
+  top: 24px;
+  color: #fff;
   text-decoration: none;
-  z-index: 2;
+  z-index: 3;
 
   .icon {
     width: 23px;
     height: 29px;
     margin-right: 5px;
     margin-top: -6px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    color: $color-primary;
+    top: 30px;
+    right: 30px;
   }
 }

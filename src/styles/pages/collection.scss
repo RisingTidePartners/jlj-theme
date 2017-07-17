@@ -1,14 +1,19 @@
 .collection-header {
-  display: flex;
+  @media screen and (min-width: 1120px) {
+    display: flex;
+  }
 }
 
 .collection-image {
-  width: 66%;
   flex-shrink: 0;
   font-size: 0;
   
   img {
     width: 100%;
+  }
+
+  @media screen and (min-width: 1120px) {
+    width: 66%;
   }
 }
 

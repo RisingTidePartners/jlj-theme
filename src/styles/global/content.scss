@@ -1,6 +1,10 @@
 .site-content {
-  margin: 30px 30px 30px 268px;
   color: $color-primary;
+  margin: 16px;
+
+  @media screen and (min-width: 1024px) {
+    margin: 30px 30px 30px 268px;
+  }
 }
 
 .template-index .site-content {
