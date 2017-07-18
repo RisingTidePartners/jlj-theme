@@ -2,7 +2,14 @@
   {% for product in products %}
     <div class="product-grid-item">
       <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}">
+        <img src="{{ product.featured_image.src | img_url: '600x600' }}" 
+             alt="{{ product.featured_image.alt | escape }}"
+             srcset="{{ product.featured_image.src | img_url: '2048x2048'}} 2048w,
+                     {{ product.featured_image.src | img_url: '1024x1024'}} 1024w,
+                     {{ product.featured_image.src | img_url: '600x600'}} 600w,
+                     {{ product.featured_image.src | img_url: '480x480'}} 480w,
+                     {{ product.featured_image.src | img_url: '240x240'}} 480w"
+             sizes="(min-width: 1120px) 33vw, 50vw">
       </a>
 
       <div class="product-grid-item-info">

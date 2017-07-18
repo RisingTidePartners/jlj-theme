@@ -2,7 +2,14 @@
   <header role="banner" class="collection-header">
     {% if collection.image %}
     <div class="collection-image">
-      <img src="{{ collection.image | img_url: "1024x1024" }}" alt="{{ collection.image.alt }}">
+      <img src="{{ collection.image | img_url: "1024x1024" }}" 
+           srcset="{{ collection.image.src | img_url: '2048x2048'}} 2048w,
+                   {{ collection.image.src | img_url: '1024x1024'}} 1024w,
+                   {{ collection.image.src | img_url: '600x600'}} 600w,
+                   {{ collection.image.src | img_url: '480x480'}} 480w,
+                   {{ collection.image.src | img_url: '240x240'}} 480w"
+           sizes="(min-width: 1124px) 60vw, 100vw"
+           alt="{{ collection.image.alt }}">
     </div>
     {% endif %}
     <div class="collection-text {% if collection.image %}dark-box{% endif %}">

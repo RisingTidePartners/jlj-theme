@@ -104,7 +104,14 @@
         <ul>
           {% for image in product.images %}
             <li>
-              <a href="{{ image.src | img_url: '1024x1024' }}" data-product-single-thumbnail>
+              <a href="{{ image.src | img_url: '1024x1024' }}"
+                 data-product-single-thumbnail
+                 data-srcset"{{ image.src | img_url: '2048x2048'}} 2048w,
+                             {{ image.src | img_url: '1024x1024'}} 1024w,
+                             {{ image.src | img_url: '600x600'}} 600w,
+                             {{ image.src | img_url: '480x480'}} 480w,
+                             {{ image.src | img_url: '240x240'}} 480w"
+              >
                 <img src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
               </a>
             </li>
@@ -113,7 +120,17 @@
       </div>
     {% endif %}
     <div class="product-images-view">
-      <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image class="js-product-image-view">
+      <img src="{{ featured_image.src | img_url: '1024x1024' }}" 
+           alt="{{ featured_image.alt | escape }}"
+           srcset="{{ featured_image.src | img_url: '2048x2048'}} 2048w,
+                   {{ featured_image.src | img_url: '1024x1024'}} 1024w,
+                   {{ featured_image.src | img_url: '600x600'}} 600w,
+                   {{ featured_image.src | img_url: '480x480'}} 480w,
+                   {{ featured_image.src | img_url: '240x240'}} 480w"
+           sizes="(min-width: 800px) 50vw, 100vw"
+           alt="{{ featured_image.alt | escape }}"
+           data-product-featured-image
+           class="js-product-image-view">
     </div>
   </div>
 
