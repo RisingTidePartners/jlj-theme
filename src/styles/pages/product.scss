@@ -15,11 +15,16 @@
   margin: 48px auto 0;
 
   @media screen and (min-width: 800px) {
-    width: 60%;
+    width: 50%;
     max-width: none;
     margin-top: 0;
     margin-right: 30px;
     flex-direction: row;
+    margin-left: 15px;
+
+    &.gallery {
+      width: 60%;
+    }
   }
 }
 

@@ -98,9 +98,9 @@
     </div>
   </div>
 
-  <div class="product-images">
-    <div class="product-images-thumbs">
-      {% if product.images.size > 1 %}
+  <div class="product-images {% if product.images.size > 1 %}gallery{% endif %}">
+    {% if product.images.size > 1 %}
+      <div class="product-images-thumbs">
         <ul>
           {% for image in product.images %}
             <li>
@@ -110,8 +110,8 @@
             </li>
           {% endfor %}
         </ul>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
     <div class="product-images-view">
       <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image class="js-product-image-view">
     </div>
