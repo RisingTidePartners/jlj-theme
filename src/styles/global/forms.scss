@@ -62,7 +62,9 @@ textarea {
   }
 }
 
-button {
+button,
+.button {
+  display: inline-block;
   -webkit-appearance: none;
   border-radius: 0;
   border: 0;
@@ -71,6 +73,14 @@ button {
   color: #fff;
   padding: 10px 28px 12px;
   font-size: 16px;
+  text-decoration: none;
   box-shadow: inset 0 0 0 4px $color-primary,
               inset 0 0 0 5px $color-gray-light;
+
+  &.white {
+    color: $color-primary;
+    background: #fff;
+    box-shadow: inset 0 0 0 4px #fff,
+                inset 0 0 0 5px $color-gray-dark;
+  }
 }
