@@ -33,6 +33,8 @@ $(document).ready(function() {
   slate.rte.wrapTable();
   slate.rte.iframeReset();
 
+  theme.initCart();
+
   // Apply a specific class to the html element for browser support of cookies.
   if (slate.cart.cookiesEnabled()) {
     document.documentElement.className = document.documentElement.className.replace('supports-no-cookies', 'supports-cookies');

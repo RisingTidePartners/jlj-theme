@@ -22,3 +22,17 @@ slate.cart = {
     return cookieEnabled;
   }
 };
+
+theme.initCart = (function() {
+  $(document).on('cart.ready', function(event, cart) {
+    alert('cart is ready')
+  });
+
+  $(document).on('cart.requestStarted', function(event, cart) {
+    alert('request started')
+  });
+
+  $(document).on('cart.requestComplete', function(event, cart) {
+    alert('request completed')
+  });  
+});
