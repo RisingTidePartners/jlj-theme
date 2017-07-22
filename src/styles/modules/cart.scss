@@ -34,7 +34,7 @@
   background: $color-primary;
   color: #fff;
   transform: translateX(100%);
-  transition: 0.3s transform;
+  transition: 0.3s transform cubic-bezier(.3,0,.06,.87);
   padding: 16px;
   overflow: auto;
   -webkit-overflow-scroll: touch;
