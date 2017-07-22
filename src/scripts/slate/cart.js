@@ -44,5 +44,13 @@ theme.initCart = (function() {
 
   $(document).on('cart.requestComplete', function(event, cart) {
     $('[data-cart-drawer]').addClass('cart-open');
+    $.ajax({
+      type: 'GET',
+      dataType: 'json',
+      url: '/cart.js',
+      success: function(data) {
+        $('[data-cart-item-counter]').html(data.item_count);
+      }
+    });
   });  
 });
