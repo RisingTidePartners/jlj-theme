@@ -6,13 +6,13 @@
         <th>Item</th>
         <th>Price</th>
         <th colspan="2">Qty</th>
-        <th>Line Price</th>
       </tr>
     </thead>
     <tbody>
       <tr rv-each-item="cart.items">
         <td>
-          <strong rv-text="item.title"></strong>
+          <span rv-text="item.title"></span>
+          <img rv-src="item.image | cart_img_url">
           <ul rv-hide="item.propertyArray | empty">
             <li rv-each-property="item.propertyArray < properties">
               <small class="text-muted">{property.name}: {property.value}</small>
@@ -28,7 +28,6 @@
         <td>
           <a href="#" rv-data-cart-remove="index | plus 1">&times;</a>
         </td>
-        <td rv-html="item.line_price | money Currency.currentCurrency"></td>
       </tr>
       <tr rv-show="cart.item_count | lt 1">
         <td colspan="5">You don't have any items in your cart.</td>
@@ -36,7 +35,6 @@
     </tbody>
     <tfoot rv-show="cart.item_count | gt 0">
       <tr>
-        <td colspan="4" rv-html="cart.total_weight | weight_with_unit"></td>
         <td rv-html="cart.total_price | money Currency.currentCurrency"></td>
       </tr>
     </tfoot>

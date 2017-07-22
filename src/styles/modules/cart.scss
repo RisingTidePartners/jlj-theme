@@ -31,13 +31,23 @@
   color: #fff;
   transform: translateX(100%);
   transition: 0.3s transform;
+  padding: 16px;
 
   &.cart-open {
     transform: translateX(0);
   }
 
+  table {
+    width: 100%;
+  }
+
+  td {
+    padding: 5px;
+  }
+
   @media screen and (min-width: 1024px) {
     left: auto;
     width: 476px;
+    padding: 30px;
   }
 }

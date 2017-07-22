@@ -73,7 +73,7 @@
       {{ 'layout.cart.title' | t }}
     </span>
     ({{ cart.item_count }})
-  </a>
+</a>
 
 
   {% section 'sidebar' %}
@@ -88,6 +88,10 @@
 
   <script type="text/javascript">
     jQuery(function() {
+      rivets.formatters.cart_img_url = function(value){
+        return value.replace('.jpg?v=', '_240x240.jpg?v=')
+      }
+      
       CartJS.init({{ cart | json }}, {
         "dataAPI": true,
         "requestBodyClass": "loading"
