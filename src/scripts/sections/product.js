@@ -48,23 +48,6 @@ theme.Product = (function() {
 
     this.initVariants();
 
-    $(selectors.cartForm).submit(function(e) {
-      $(selectors.addToCart).attr('disabled', true);
-
-      $.ajax({
-       type: 'POST',
-       url: '/cart/add.js',
-       data: $(selectors.cartForm).serialize(),
-       dataType: 'json',
-       success: function(data)
-         {
-           $(selectors.addToCart).attr('disabled', false);
-         }
-       });
-
-      e.preventDefault();
-    });
-
   }
 
   Product.prototype = $.extend({}, Product.prototype, {

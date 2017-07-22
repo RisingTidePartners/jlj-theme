@@ -24,15 +24,25 @@ slate.cart = {
 };
 
 theme.initCart = (function() {
+  $('[data-cart-link]').click(function(e){
+    $('[data-cart-drawer]').addClass('cart-open');
+    e.preventDefault();
+  });
+
+  $('[data-cart-close]').click(function(e){
+    $('[data-cart-drawer]').removeClass('cart-open');
+    e.preventDefault();
+  });
+
   $(document).on('cart.ready', function(event, cart) {
-    alert('cart is ready')
+    
   });
 
   $(document).on('cart.requestStarted', function(event, cart) {
-    alert('request started')
+    
   });
 
   $(document).on('cart.requestComplete', function(event, cart) {
-    alert('request completed')
+    $('[data-cart-drawer]').addClass('cart-open');
   });  
 });
