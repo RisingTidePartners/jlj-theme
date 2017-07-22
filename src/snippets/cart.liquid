@@ -1,42 +1,37 @@
-<div class="cart-drawer" data-cart-drawer>
-  <a href="#" class="cart-close" data-cart-close>×</a>
-  <h2>{{ 'cart.general.title' | t }}</h2>
-  <div data-cart-view="data-cart-view">
-    <div>
-      <div class="cart-item" rv-each-item="cart.items">
-        <div class="cart-item-image">
-          <img rv-src="item.image | cart_img_url">
-        </div>
-        <div class="cart-item-details">
-          <h2 rv-text="item.title"></h2>
-          <ul rv-hide="item.propertyArray | empty">
-            <li rv-each-property="item.propertyArray < properties">
-              {property.name}: {property.value}
-            </li>
-          </ul>
-          <div rv-html="item.price | money Currency.currentCurrency"></div>
-          <div class="cart-item-options"> 
-            <div class="cart-item-qty qty-count">
-              <a class="qty-element" href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | minus 1">−</a>
-              <div class="qty-element"><span rv-text="item.quantity"></span></div>
-              <a class="qty-element" href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | plus 1">+</a>
-              <a class="qty-element remove" href="#" rv-data-cart-remove="index | plus 1"> {{ 'cart.general.remove' | t }}</a>
-            </div>
+<h2>{{ 'cart.general.title' | t }}</h2>
+<div data-cart-view="data-cart-view">
+  <div>
+    <div class="cart-item" rv-each-item="cart.items">
+      <div class="cart-item-image">
+        <img rv-src="item.image | cart_img_url">
+      </div>
+      <div class="cart-item-details">
+        <h2 rv-text="item.title"></h2>
+        <ul rv-hide="item.propertyArray | empty">
+          <li rv-each-property="item.propertyArray < properties">
+            {property.name}: {property.value}
+          </li>
+        </ul>
+        <div rv-html="item.price | money Currency.currentCurrency"></div>
+        <div class="cart-item-options"> 
+          <div class="cart-item-qty qty-count">
+            <a class="qty-element" href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | minus 1">−</a>
+            <div class="qty-element"><span rv-text="item.quantity"></span></div>
+            <a class="qty-element" href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | plus 1">+</a>
+            <a class="qty-element remove" href="#" rv-data-cart-remove="index | plus 1"> {{ 'cart.general.remove' | t }}</a>
           </div>
         </div>
       </div>
     </div>
-    <div rv-show="cart.item_count | gt 0">
-      <div class="text-center cart-total">
-        <!-- <div>{{ 'cart.label.total' | t }}</div> -->
-        <a href="/checkout" class="button white cart-checkout-btn">{{ 'cart.general.checkout' | t }}</a>
-        <h2 rv-html="cart.total_price | money Currency.currentCurrency"></h2>
-      </div>
-    </div>
-    <div rv-show="cart.item_count | lt 1">
-      <div>{{ 'cart.general.empty' | t }}</div>
+  </div>
+  <div rv-show="cart.item_count | gt 0">
+    <div class="text-center cart-total">
+      <!-- <div>{{ 'cart.label.total' | t }}</div> -->
+      <a href="/checkout" class="cart-checkout-btn button {% if template.name != 'cart' %}white{% endif %}">{{ 'cart.general.checkout' | t }}</a>
+      <h2 rv-html="cart.total_price | money Currency.currentCurrency"></h2>
     </div>
   </div>
-
-  <!-- <img src="loader.gif" width="16" height="11" class="cart-visible-loading"/> -->
+  <div rv-show="cart.item_count | lt 1">
+    <div>{{ 'cart.general.empty' | t }}</div>
+  </div>
 </div>
