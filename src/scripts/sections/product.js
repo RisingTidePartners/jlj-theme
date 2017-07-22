@@ -9,6 +9,7 @@
 theme.Product = (function() {
 
   var selectors = {
+    cartForm: '[data-cart-submit]',
     addToCart: '[data-add-to-cart]',
     addToCartText: '[data-add-to-cart-text]',
     comparePrice: '[data-compare-price]',
@@ -46,6 +47,24 @@ theme.Product = (function() {
     slate.Image.preload(this.productSingleObject.images, this.settings.imageSize);
 
     this.initVariants();
+
+    $(selectors.cartForm).submit(function(e) {
+      $(selectors.addToCart).attr('disabled', true);
+
+      $.ajax({
+       type: 'POST',
+       url: '/cart/add.js',
+       data: $(selectors.cartForm).serialize(),
+       dataType: 'json',
+       success: function(data)
+         {
+           $(selectors.addToCart).attr('disabled', false);
+         }
+       });
+
+      e.preventDefault();
+    });
+
   }
 
   Product.prototype = $.extend({}, Product.prototype, {
