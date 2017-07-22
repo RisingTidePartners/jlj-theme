@@ -48,6 +48,17 @@ theme.Product = (function() {
 
     this.initVariants();
 
+    $(selectors.addToCart).click(function() {
+      $(this).blur();
+    })
+
+    $(document).on('cart.requestStarted', function(event, cart) {
+      $(selectors.addToCart).attr('disabled', true);
+    });
+
+    $(document).on('cart.requestComplete', function(event, cart) {
+      $(selectors.addToCart).attr('disabled', false);
+    });
   }
 
   Product.prototype = $.extend({}, Product.prototype, {

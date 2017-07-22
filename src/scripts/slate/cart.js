@@ -34,14 +34,6 @@ theme.initCart = (function() {
     e.preventDefault();
   });
 
-  $(document).on('cart.ready', function(event, cart) {
-    
-  });
-
-  $(document).on('cart.requestStarted', function(event, cart) {
-    
-  });
-
   $(document).on('cart.requestComplete', function(event, cart) {
     $('[data-cart-drawer]').addClass('cart-open');
     $.ajax({
