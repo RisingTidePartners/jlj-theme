@@ -107,6 +107,19 @@ slate.Variants = (function() {
         return;
       }
 
+      // BEGIN SWATCHES
+      var selector = this.originalSelectorId;
+      if (variant) {
+          var form = $(selector).closest('form');
+          for (var i=0,length=variant.options.length; i<length; i++) {
+              var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+              if (radioButton.size()) {
+                  radioButton.get(0).checked = true;
+              }
+          }
+      }
+      // END SWATCHES
+
       this._updateMasterSelect(variant);
       this._updateImages(variant);
       this._updatePrice(variant);

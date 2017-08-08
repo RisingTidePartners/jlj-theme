@@ -29,6 +29,7 @@
 
                 <select
                   id="SingleOptionSelector-{{ forloop.index0 }}"
+                  class="single-option-selector"
                   data-single-option-selector
                   data-index="option{{ option.position }}">
                   {% for value in option.values %}
@@ -53,6 +54,12 @@
               </option>
             {% endfor %}
           </select>
+
+          {% if product.available and product.variants.size > 1 %}
+            {% for option in product.options %}
+              {% include 'swatch' with option %}
+            {% endfor %}
+          {% endif %}
 
           {% comment %}
             <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
