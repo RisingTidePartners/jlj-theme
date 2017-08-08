@@ -20,7 +20,8 @@ theme.Product = (function() {
     productJson: '[data-product-json]',
     productPrice: '[data-product-price]',
     productThumbs: '[data-product-single-thumbnail]',
-    singleOptionSelector: '[data-single-option-selector]'
+    singleOptionSelector: '[data-single-option-selector]',
+    zoom: '[data-js-zoom]'
   };
 
   /**
@@ -58,6 +59,17 @@ theme.Product = (function() {
 
     $(document).on('cart.requestComplete', function(event, cart) {
       $(selectors.addToCart).attr('disabled', false);
+    });
+
+    $(selectors.zoom).zoom({
+      url: $(selectors.zoom).attr('data-zoom-src'),
+      on: 'click',
+      onZoomIn: function() {
+        $(selectors.zoom).addClass('zoomed');
+      },
+      onZoomOut: function() {
+        $(selectors.zoom).removeClass('zoomed');
+      },
     });
   }
 

@@ -127,7 +127,7 @@
         </ul>
       </div>
     {% endif %}
-    <div class="product-images-view">
+    <div class="product-images-view" data-js-zoom data-zoom-src="{{ featured_image.src | img_url: '2048x2048'}}">
       <img src="{{ featured_image.src | img_url: '1024x1024' }}" 
            alt="{{ featured_image.alt | escape }}"
            srcset="{{ featured_image.src | img_url: '2048x2048'}} 2048w,
