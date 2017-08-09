@@ -2,7 +2,7 @@
   <header role="banner">
 
     <div class="sidebar-menu-toggle">
-      <a href="#">{% include 'icon-menu' %}</a>
+      <a href="#" data-js-site-nav-toggle>{% include 'icon-menu' %}</a>
     </div>
     
     <div class="sidebar-logo" itemscope itemtype="http://schema.org/Organization">
@@ -58,7 +58,7 @@
 
   </header>
 
-  <nav role="navigation" class="site-nav-container">
+  <nav role="navigation" class="site-nav-container" data-js-site-nav-container>
     <ul class="site-nav">
       {% for link in linklists[section.settings.main_linklist].links %}
         {%- assign child_list_handle = link.title | handleize -%}

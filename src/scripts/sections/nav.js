@@ -1,6 +1,8 @@
 theme.initNav = function() {
   var $dropdownToggles = $('[data-js-dropdown-toggle]');
-  var $dropdowns = $('[data-js-dropdown]')
+  var $dropdowns = $('[data-js-dropdown]');
+  var $navContainer = $('[data-js-site-nav-container]');
+  var $navToggle = $('[data-js-site-nav-toggle]');
 
   $dropdownToggles.each(function(index, el) {
     el.onclick = function(e) {
@@ -13,5 +15,10 @@ theme.initNav = function() {
 
       e.preventDefault();
     }
+  });
+
+  $navToggle.click(function(event) {
+    console.log('fuck youuuuu');
+    $navContainer.toggleClass('visible');
   });
 }
