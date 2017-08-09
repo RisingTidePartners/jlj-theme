@@ -31,8 +31,7 @@
 
 .product-grid-item-info {
   margin-top: 4px;
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
 
   a {
     text-decoration: none;
@@ -50,4 +49,5 @@
   font-size: 14px;
   text-transform: uppercase;
   margin-right: 15px;
+  margin-bottom: 7px;
 }
