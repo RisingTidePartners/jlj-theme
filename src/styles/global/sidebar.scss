@@ -1,3 +1,11 @@
+.site-nav-container {
+  display: none;
+
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
+}
+
 .site-sidebar {
   position: relative;
   background: $color-primary;
@@ -30,15 +38,10 @@
   margin: 32px 0;
   padding: 0;
   text-transform: uppercase;
-  display: none;
   text-align: left;
 
   li {
     margin: 32px 0;
-  }
-
-  @media screen and (min-width: 1024px) {
-    display: block;
   }
 }
 
@@ -81,7 +84,7 @@
 
 .social-icons {
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   margin: 0;
 
   a {
