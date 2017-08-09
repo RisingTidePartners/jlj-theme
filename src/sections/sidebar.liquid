@@ -68,8 +68,9 @@
                    {% for childlink in menus[child_list_handle].links %}
                      {% if childlink.active %}site-nav--active{% endif %}
                    {% endfor %}"
-            data-js-dropdown>
-            <a href="{{ link.url }}" class="site-nav__link">
+            data-js-dropdown
+            >
+            <a href="{{ link.url }}" data-js-dropdown-toggle class="site-nav__link">
               {{ link.title }}
             </a>
             <ul class="site-nav__submenu">
