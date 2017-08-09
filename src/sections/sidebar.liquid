@@ -58,7 +58,7 @@
 
   </header>
 
-  <nav role="navigation" class="site-nav-container" data-js-site-nav-container>
+  <nav role="navigation" class="site-nav-container visible" data-js-site-nav-container>
     <ul class="site-nav">
       {% for link in linklists[section.settings.main_linklist].links %}
         {%- assign child_list_handle = link.title | handleize -%}
