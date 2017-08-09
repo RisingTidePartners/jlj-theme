@@ -24,6 +24,23 @@ theme.Product = (function() {
     zoom: '[data-js-zoom]'
   };
 
+  function destroyZoom() {
+    $(selectors.zoom).trigger('zoom.destroy')
+  }
+
+  function activateZoom() {
+    $(selectors.zoom).zoom({
+      url: $(selectors.zoom).attr('data-zoom-src'),
+      on: 'click',
+      onZoomIn: function() {
+        $(selectors.zoom).addClass('zoomed');
+      },
+      onZoomOut: function() {
+        $(selectors.zoom).removeClass('zoomed');
+      },
+    });
+  }
+
   /**
    * Product section constructor. Runs on page load as well as Theme Editor
    * `section:load` events.
@@ -74,23 +91,6 @@ theme.Product = (function() {
         e.preventDefault();
       });
     });
-
-    function destroyZoom() {
-      $(selectors.zoom).trigger('zoom.destroy')
-    }
-
-    function activateZoom() {
-      $(selectors.zoom).zoom({
-        url: $(selectors.zoom).attr('data-zoom-src'),
-        on: 'click',
-        onZoomIn: function() {
-          $(selectors.zoom).addClass('zoomed');
-        },
-        onZoomOut: function() {
-          $(selectors.zoom).removeClass('zoomed');
-        },
-      });
-    }
 
     activateZoom();
   }
@@ -175,7 +175,17 @@ theme.Product = (function() {
       var variant = evt.variant;
       var sizedImgUrl = slate.Image.getSizedImageUrl(variant.featured_image.src, this.settings.imageSize);
 
+      var srcset = slate.Image.getSizedImageUrl(variant.featured_image.src, '2048x2048') + ' 2048w,'
+                 + slate.Image.getSizedImageUrl(variant.featured_image.src, '1024x1024') + ' 1024w,'
+                 + slate.Image.getSizedImageUrl(variant.featured_image.src, '600x600') + ' 600w,'
+                 + slate.Image.getSizedImageUrl(variant.featured_image.src, '480x480') + ' 480w'
+
       $(selectors.productFeaturedImage, this.$container).attr('src', sizedImgUrl);
+      $(selectors.productFeaturedImage, this.$container).attr('srcset', srcset);
+      $(selectors.zoom).attr('data-zoom-src', slate.Image.getSizedImageUrl(variant.featured_image.src, '2048x2048'));
+      $(selectors.productThumbs).removeClass('active');
+      destroyZoom();
+      activateZoom();
     },
 
     /**
