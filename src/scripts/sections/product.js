@@ -61,16 +61,38 @@ theme.Product = (function() {
       $(selectors.addToCart).attr('disabled', false);
     });
 
-    $(selectors.zoom).zoom({
-      url: $(selectors.zoom).attr('data-zoom-src'),
-      on: 'click',
-      onZoomIn: function() {
-        $(selectors.zoom).addClass('zoomed');
-      },
-      onZoomOut: function() {
-        $(selectors.zoom).removeClass('zoomed');
-      },
+    $(selectors.productThumbs).each(function() {
+      $(this).click(function(e) {
+        $(selectors.productThumbs).removeClass('active');
+        $(this).addClass('active');
+        $(selectors.productFeaturedImage).attr('src', $(this).attr('href'));
+        $(selectors.productFeaturedImage).attr('srcset', $(this).attr('data-srcset'));
+        $(selectors.zoom).attr('data-zoom-src', $(this).attr('data-zoom-src'));
+        destroyZoom();
+        activateZoom();
+
+        e.preventDefault();
+      });
     });
+
+    function destroyZoom() {
+      $(selectors.zoom).trigger('zoom.destroy')
+    }
+
+    function activateZoom() {
+      $(selectors.zoom).zoom({
+        url: $(selectors.zoom).attr('data-zoom-src'),
+        on: 'click',
+        onZoomIn: function() {
+          $(selectors.zoom).addClass('zoomed');
+        },
+        onZoomOut: function() {
+          $(selectors.zoom).removeClass('zoomed');
+        },
+      });
+    }
+
+    activateZoom();
   }
 
   Product.prototype = $.extend({}, Product.prototype, {
