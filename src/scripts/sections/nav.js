@@ -8,8 +8,10 @@ theme.initNav = function() {
 
   // jQuery actually can't do this elegantly
 
-  activeNav.style.maxHeight = activeNav.scrollHeight + 'px';
-  activeNavWrap.classList.remove('site-nav--initial');
+  if (activeNav) {
+    activeNav.style.maxHeight = activeNav.scrollHeight + 'px';
+    activeNavWrap.classList.remove('site-nav--initial');
+  }
 
   dropdownToggles.forEach(function(el, i) {
     el.menuToToggle = dropdowns[i]
