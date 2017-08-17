@@ -24,11 +24,8 @@ theme.Product = (function() {
     zoom: '[data-js-zoom]'
   };
 
-  function destroyZoom() {
-    $(selectors.zoom).trigger('zoom.destroy')
-  }
-
-  function activateZoom() {
+  function resetZoom() {
+    $(selectors.zoom).trigger('zoom.destroy');
     $(selectors.zoom).zoom({
       url: $(selectors.zoom).attr('data-zoom-src'),
       on: 'click',
@@ -52,8 +49,7 @@ theme.Product = (function() {
       $el.attr('src', featuredSrc);
       $el.attr('srcset', featuredSrcset);
       $(selectors.zoom).attr('data-zoom-src', zoomSrc);
-      destroyZoom();
-      activateZoom();
+      resetZoom();
       $el.load(function() {
         $el.fadeIn(250);
       });
