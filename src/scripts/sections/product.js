@@ -41,6 +41,15 @@ theme.Product = (function() {
     });
   }
 
+  function swapFeaturedImage(featuredSrc, featuredSrcset, zoomSrc) {
+    $(selectors.productFeaturedImage).attr('src', featuredSrc);
+    $(selectors.productFeaturedImage).attr('srcset', featuredSrcset);
+    $(selectors.zoom).attr('data-zoom-src', zoomSrc);
+    destroyZoom();
+    activateZoom();
+    console.log('swapping')
+  }
+
   /**
    * Product section constructor. Runs on page load as well as Theme Editor
    * `section:load` events.
@@ -82,12 +91,7 @@ theme.Product = (function() {
       $(this).click(function(e) {
         $(selectors.productThumbs).removeClass('active');
         $(this).addClass('active');
-        $(selectors.productFeaturedImage).attr('src', $(this).attr('href'));
-        $(selectors.productFeaturedImage).attr('srcset', $(this).attr('data-srcset'));
-        $(selectors.zoom).attr('data-zoom-src', $(this).attr('data-zoom-src'));
-        destroyZoom();
-        activateZoom();
-
+        swapFeaturedImage($(this).attr('href'), $(this).attr('data-srcset'), $(this).attr('data-zoom-src'));
         e.preventDefault();
       });
     });
@@ -178,14 +182,11 @@ theme.Product = (function() {
       var srcset = slate.Image.getSizedImageUrl(variant.featured_image.src, '2048x2048') + ' 2048w,'
                  + slate.Image.getSizedImageUrl(variant.featured_image.src, '1024x1024') + ' 1024w,'
                  + slate.Image.getSizedImageUrl(variant.featured_image.src, '600x600') + ' 600w,'
-                 + slate.Image.getSizedImageUrl(variant.featured_image.src, '480x480') + ' 480w'
+                 + slate.Image.getSizedImageUrl(variant.featured_image.src, '480x480') + ' 480w';
 
-      $(selectors.productFeaturedImage, this.$container).attr('src', sizedImgUrl);
-      $(selectors.productFeaturedImage, this.$container).attr('srcset', srcset);
-      $(selectors.zoom).attr('data-zoom-src', slate.Image.getSizedImageUrl(variant.featured_image.src, '2048x2048'));
-      $(selectors.productThumbs).removeClass('active');
-      destroyZoom();
-      activateZoom();
+      var zoomSrc = slate.Image.getSizedImageUrl(variant.featured_image.src, '2048x2048');
+
+      swapFeaturedImage(sizedImgUrl, srcset, zoomSrc);
     },
 
     /**
