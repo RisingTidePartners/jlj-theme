@@ -42,12 +42,18 @@ theme.Product = (function() {
   }
 
   function swapFeaturedImage(featuredSrc, featuredSrcset, zoomSrc) {
-    $(selectors.productFeaturedImage).attr('src', featuredSrc);
-    $(selectors.productFeaturedImage).attr('srcset', featuredSrcset);
-    $(selectors.zoom).attr('data-zoom-src', zoomSrc);
-    destroyZoom();
-    activateZoom();
-    console.log('swapping')
+    $el = $(selectors.productFeaturedImage);
+
+    $el.fadeOut(250, function() {
+      $el.attr('src', featuredSrc);
+      $el.attr('srcset', featuredSrcset);
+      $(selectors.zoom).attr('data-zoom-src', zoomSrc);
+      destroyZoom();
+      activateZoom();
+      $el.load(function() {
+        $el.fadeIn(250);
+      });
+    });
   }
 
   /**
@@ -185,6 +191,7 @@ theme.Product = (function() {
                  + slate.Image.getSizedImageUrl(variant.featured_image.src, '480x480') + ' 480w';
 
       var zoomSrc = slate.Image.getSizedImageUrl(variant.featured_image.src, '2048x2048');
+      $(selectors.productThumbs).removeClass('active');
 
       swapFeaturedImage(sizedImgUrl, srcset, zoomSrc);
     },
