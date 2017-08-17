@@ -44,6 +44,10 @@ theme.Product = (function() {
   function swapFeaturedImage(featuredSrc, featuredSrcset, zoomSrc) {
     $el = $(selectors.productFeaturedImage);
 
+    if($el.attr('src') == featuredSrc) {
+      return false
+    }
+
     $el.fadeOut(250, function() {
       $el.attr('src', featuredSrc);
       $el.attr('srcset', featuredSrcset);
