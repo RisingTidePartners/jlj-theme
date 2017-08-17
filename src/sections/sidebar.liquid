@@ -4,7 +4,7 @@
     <div class="sidebar-menu-toggle">
       <a href="#" data-js-site-nav-toggle>{% include 'icon-menu' %}</a>
     </div>
-    
+
     <div class="sidebar-logo" itemscope itemtype="http://schema.org/Organization">
       <a href="/" itemprop="url" class="site-logo">
         <img src="{{ 'logo.png' | asset_url }}">
@@ -64,16 +64,18 @@
         {%- assign child_list_handle = link.title | handleize -%}
         {% if menus[child_list_handle].links != blank %}
           <li
-            class="site-nav--has-submenu 
+            class="site-nav--has-submenu
                    {% for childlink in menus[child_list_handle].links %}
-                     {% if childlink.active %}site-nav--active{% endif %}
+                     {% if childlink.active %}site-nav--initial{% endif %}
                    {% endfor %}"
-            data-js-dropdown
+            {% for childlink in menus[child_list_handle].links %}
+              {% if childlink.active %}js-nav-active{% endif %}
+            {% endfor %}
             >
             <a href="{{ link.url }}" data-js-dropdown-toggle class="site-nav__link">
               {{ link.title }}
             </a>
-            <ul class="site-nav__submenu">
+            <ul class="site-nav__submenu" data-js-dropdown>
               {% for childlink in menus[child_list_handle].links %}
                 <li {% if childlink.active %}class="site-nav--active"{% endif %}>
                   <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>

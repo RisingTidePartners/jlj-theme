@@ -7,7 +7,7 @@
  */
 
 slate.cart = {
-  
+
   /**
    * Browser cookies are required to use the cart. This function checks if
    * cookies are enabled in the browser.
@@ -42,7 +42,10 @@ theme.initCart = (function() {
       url: '/cart.js',
       success: function(data) {
         $('[data-cart-item-counter]').html(data.item_count);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        alert('Error: ' + errorThrown + '!');
       }
     });
-  });  
+  });
 });

@@ -1,24 +1,31 @@
 theme.initNav = function() {
-  var $dropdownToggles = $('[data-js-dropdown-toggle]');
-  var $dropdowns = $('[data-js-dropdown]');
+  var dropdownToggles = document.querySelectorAll('[data-js-dropdown-toggle]');
+  var dropdowns = document.querySelectorAll('[data-js-dropdown]');
+  var activeNavWrap = document.querySelector('[js-nav-active]')
+  var activeNav = document.querySelector('[js-nav-active] [data-js-dropdown]')
   var $navContainer = $('[data-js-site-nav-container]');
   var $navToggle = $('[data-js-site-nav-toggle]');
 
-  $dropdownToggles.each(function(index, el) {
-    el.onclick = function(e) {
-      if($(this).parent().hasClass('site-nav--active')) {
-        $(this).parent().removeClass('site-nav--active')
-      } else {
-        $dropdowns.removeClass('site-nav--active')
-        $(this).parent().addClass('site-nav--active');
-      }
+  // jQuery actually can't do this elegantly
 
-      e.preventDefault();
+  activeNav.style.maxHeight = activeNav.scrollHeight + 'px';
+  activeNavWrap.classList.remove('site-nav--initial');
+
+  dropdownToggles.forEach(function(el, i) {
+    el.menuToToggle = dropdowns[i]
+    el.onclick = function() {
+      if(this.menuToToggle.style.maxHeight.includes('px')) {
+        this.menuToToggle.style.maxHeight = null;
+      } else {
+        dropdowns.forEach(function(el) {
+          el.style.maxHeight = null;
+        });
+        this.menuToToggle.style.maxHeight = this.menuToToggle.scrollHeight + 'px';
+      }
     }
   });
 
   $navToggle.click(function(event) {
-    console.log('fuck youuuuu');
     $navContainer.toggleClass('visible');
   });
 }
