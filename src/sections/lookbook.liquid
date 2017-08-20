@@ -39,11 +39,28 @@
             {% if block.settings.caption %}
               <div class="lookbook-caption">
                 {{ block.settings.caption }}
-
-                {% if block.settings.collection %}
-                  {%- assign collection = collections[block.settings.collection] -%}
-
-                  <a href="{{ collection.url }}">{{ collection.title }}</a>
+                {% if block.settings.product1 != "" %}
+                  <h3>Shop this look</h3>
+                  <div class="lookbook-thumbs">                  
+                      {%- assign product = all_products[block.settings.product1] -%}
+                     <a class="lookbook-thumb" href="{{ product.url }}" title="{{product.title}}">{{ product.featured_image.src | img_url: '120x120' | img_tag }}</a>
+                    {% if block.settings.product2 != "" %}
+                      {%- assign product = all_products[block.settings.product2] -%}
+                     <a class="lookbook-thumb" href="{{ product.url }}" title="{{product.title}}">{{ product.featured_image.src | img_url: '120x120' | img_tag }}</a>
+                    {% endif %}
+                    {% if block.settings.product3 != "" %}
+                      {%- assign product = all_products[block.settings.product3] -%}
+                     <a class="lookbook-thumb" href="{{ product.url }}" title="{{product.title}}">{{ product.featured_image.src | img_url: '120x120' | img_tag }}</a>
+                    {% endif %}
+                    {% if block.settings.product4 != "" %}
+                      {%- assign product = all_products[block.settings.product4] -%}
+                     <a class="lookbook-thumb" href="{{ product.url }}" title="{{product.title}}">{{ product.featured_image.src | img_url: '120x120' | img_tag }}</a>
+                    {% endif %}
+                    {% if block.settings.product5 != "" %}
+                      {%- assign product = all_products[block.settings.product5] -%}
+                     <a class="lookbook-thumb" href="{{ product.url }}" title="{{product.title}}">{{ product.featured_image.src | img_url: '120x120' | img_tag }}</a>
+                    {% endif %}
+                  </div>
                 {% endif %}
               </div>
             {% endif %}
