@@ -1,6 +1,10 @@
 .template-page-lookbook {
   background: #000;
   color: #fff;
+
+  .site-footer {
+    display: none;
+  }
 }
 
 .template-page-lookbook .site-content {
@@ -28,7 +32,7 @@
 }
 
 .lookbook-image {
-  margin: 15px 0;
+  padding: 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;
