@@ -122,6 +122,16 @@
 
   &.lookbook-prev {
     transform: scaleX(-1);
+    left: 268px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    &.lookbook-prev {
+      left: 30px;
+    }
+    &.lookbook-next {
+      right: 30px;
+    }
   }
 
   @media screen and (max-width: 767px) {
