@@ -1,4 +1,4 @@
-<div class="lookbook-page">
+<div class="lookbook-page" data-js-next-slide>
   {% assign current_page = false %}
   {% for block in section.blocks %}
   <div {{ block.shopify_attributes }}>
@@ -21,11 +21,12 @@
 
         {% if current_page == true %}
           {% if block.settings.image %}
-          <div class="lookbook-slide">
+          <div class="lookbook-slide" data-js-lookbook-slide>
             <div class="lookbook-image">
               <img 
-                src="{{ block.settings.image | img_url: '1024x1024' }}"
-                srcset="{{ block.settings.image | img_url: '2048x2048'}} 2048w,
+                data-js-lookbook-image
+                data-src="{{ block.settings.image | img_url: '1024x1024' }}"
+                data-srcset="{{ block.settings.image | img_url: '2048x2048'}} 2048w,
                 {{ block.settings.image | img_url: '1024x1024'}} 1024w,
                 {{ block.settings.image | img_url: '600x600'}} 600w,
                 {{ block.settings.image | img_url: '480x480'}} 480w"
@@ -72,9 +73,29 @@
             "label": "Caption"
           },
           {
-            "id": "collection",
-            "type": "collection",
-            "label": "Collection Link"
+            "id": "product1",
+            "type": "product",
+            "label": "Featured Product 1"
+          },
+          {
+            "id": "product2",
+            "type": "product",
+            "label": "Featured Product 2"
+          },
+          {
+            "id": "product3",
+            "type": "product",
+            "label": "Featured Product 3"
+          },
+          {
+            "id": "product4",
+            "type": "product",
+            "label": "Featured Product 4"
+          },
+          {
+            "id": "product5",
+            "type": "product",
+            "label": "Featured Product 5"
           }
         ]
       },

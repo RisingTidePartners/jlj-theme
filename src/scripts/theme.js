@@ -14,6 +14,7 @@ window.theme = window.theme || {};
 /*================ Sections ================*/
 // =require sections/product.js
 // =require sections/nav.js
+// =require sections/lookbook.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js
@@ -36,6 +37,7 @@ $(document).ready(function() {
 
   theme.initCart();
   theme.initNav();
+  theme.initLookbook();
 
   // Apply a specific class to the html element for browser support of cookies.
   if (slate.cart.cookiesEnabled()) {
