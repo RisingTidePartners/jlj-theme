@@ -1,0 +1,38 @@
+.template-page-lookbook {
+  background: #000;
+  color: #fff;
+}
+
+.template-page-lookbook .site-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.lookbook-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lookbook-image {
+  padding: 30px 0;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lookbook-image img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.lookbook-caption {
+  max-width: 298px;
+  min-width: 150px;
+  color: #fff;
+  margin-left: 30px;
+}

@@ -1,7 +1,7 @@
-<div>
+<div class="lookbook-page">
   {% assign current_page = false %}
   {% for block in section.blocks %}
-  <div class="grid-item" {{ block.shopify_attributes }}>
+  <div {{ block.shopify_attributes }}>
     {% case block.type %}
 
       {% when 'lookbook-page' %}
@@ -21,18 +21,32 @@
 
         {% if current_page == true %}
           {% if block.settings.image %}
-            {{ block.settings.image | img_url: "1024x1024" | img_tag }}
-          {% endif %}
+          <div class="lookbook-slide">
+            <div class="lookbook-image">
+              <img 
+                src="{{ block.settings.image | img_url: '1024x1024' }}"
+                srcset="{{ block.settings.image | img_url: '2048x2048'}} 2048w,
+                {{ block.settings.image | img_url: '1024x1024'}} 1024w,
+                {{ block.settings.image | img_url: '600x600'}} 600w,
+                {{ block.settings.image | img_url: '480x480'}} 480w"
+                onload="if(this.height >= this.width){this.classList.add('vertical');}"
+              >
+            </div>
+            
+            {% endif %}
 
-          {% if block.settings.collection %}
-            {%- assign collection = collections[block.settings.collection] -%}
+            {% if block.settings.caption %}
+              <div class="lookbook-caption">
+                {{ block.settings.caption }}
 
-            <a href="{{ collection.url }}">{{ collection.title }}</a>
-          {% endif %}
+                {% if block.settings.collection %}
+                  {%- assign collection = collections[block.settings.collection] -%}
 
-          {% if block.settings.caption %}
-            {{ block.settings.caption }}
-          {% endif %}
+                  <a href="{{ collection.url }}">{{ collection.title }}</a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
         {% endif %}
       
     {% endcase %}

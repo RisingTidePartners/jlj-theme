@@ -1,9 +1,10 @@
 .site-content {
   color: $color-primary;
-  margin: 16px;
+  padding: 16px;
 
   @media screen and (min-width: 1024px) {
-    margin: 30px 30px 30px 268px;
+    padding: 30px 30px 30px 268px;
+    min-height: 100vh;
   }
 }
 
