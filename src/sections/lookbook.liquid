@@ -1,4 +1,4 @@
-<div class="lookbook-page" data-js-next-slide>
+<div class="lookbook-page">
   {% assign current_page = false %}
   {% for block in section.blocks %}
   <div {{ block.shopify_attributes }}>
@@ -70,6 +70,15 @@
     {% endcase %}
   </div>
   {% endfor %}
+
+  <div class="lookbook-ui lookbook-next">
+    {{ 'gallery-arrow.svg' | asset_url | img_tag }}
+    <a href="#" data-js-next-slide></a>
+  </div>
+  <div class="lookbook-ui lookbook-prev">  
+    {{ 'gallery-arrow.svg' | asset_url | img_tag }}
+    <a href="#" data-js-prev-slide></a>
+  </div>
 </div>
 
 {% schema %}

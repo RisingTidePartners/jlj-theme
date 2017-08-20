@@ -1,6 +1,7 @@
 theme.initLookbook = function() {
   lookbookSlides = document.querySelectorAll('[data-js-lookbook-slide]')
   nextSlideButton = document.querySelector('[data-js-next-slide')
+  prevSlideButton = document.querySelector('[data-js-prev-slide')
   var currentSlideIndex
   var visibilityTimeout
 
@@ -10,6 +11,10 @@ theme.initLookbook = function() {
 
     if(currentSlideIndex + 1 > lookbookSlides.length) {
       currentSlideIndex = 0
+    }
+
+    if(currentSlideIndex < 0) {
+      currentSlideIndex = lookbookSlides.length - 1
     }
 
     var visibleSlide = document.querySelector('[data-js-lookbook-slide].visible')
@@ -38,9 +43,18 @@ theme.initLookbook = function() {
   }
 
   if (nextSlideButton) {
-    nextSlideButton.onclick = function() {
+    nextSlideButton.onclick = function(e) {
       currentSlideIndex++
       loadSlide(currentSlideIndex)
+      e.preventDefault()
+    }
+  }
+
+  if (prevSlideButton) {
+    prevSlideButton.onclick = function(e) {
+      currentSlideIndex--
+      loadSlide(currentSlideIndex)
+      e.preventDefault()
     }
   }
 }
