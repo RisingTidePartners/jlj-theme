@@ -1,24 +1,40 @@
 <div>
+  {% assign current_page = false %}
   {% for block in section.blocks %}
   <div class="grid-item" {{ block.shopify_attributes }}>
     {% case block.type %}
 
+      {% when 'lookbook-page' %}
+
+        {% if block.settings.page == page.handle %}
+        
+          {% assign current_page = true %}
+
+        {% else %}
+
+          {% assign current_page = false %}
+
+        {% endif %}
+
+
       {% when 'lookbook-image' %}
+
+        {% if current_page == true %}
+          {% if block.settings.image %}
+            {{ block.settings.image | img_url: "1024x1024" | img_tag }}
+          {% endif %}
+
+          {% if block.settings.collection %}
+            {%- assign collection = collections[block.settings.collection] -%}
+
+            <a href="{{ collection.url }}">{{ collection.title }}</a>
+          {% endif %}
+
+          {% if block.settings.caption %}
+            {{ block.settings.caption }}
+          {% endif %}
+        {% endif %}
       
-        {% if block.settings.image %}
-          {{ block.settings.image | img_url: "1024x1024" | img_tag }}
-        {% endif %}
-
-        {% if block.settings.collection %}
-          {%- assign collection = collections[block.settings.collection] -%}
-
-          <a href="{{ collection.url }}">{{ collection.title }}</a>
-        {% endif %}
-
-        {% if block.settings.caption %}
-          {{ block.settings.caption }}
-        {% endif %}
-
     {% endcase %}
   </div>
   {% endfor %}
@@ -45,6 +61,18 @@
             "id": "collection",
             "type": "collection",
             "label": "Collection Link"
+          }
+        ]
+      },
+      {
+        "type": "lookbook-page",
+        "name": "Lookbook Page",
+        "settings": [
+          {
+            "id": "page",
+            "type": "page",
+            "label": "Page",
+            "info": "All images under this block will appear on the selected page."
           }
         ]
       }
