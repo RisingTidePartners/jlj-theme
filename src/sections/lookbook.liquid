@@ -36,7 +36,7 @@
             
             {% endif %}
 
-            {% if block.settings.caption %}
+            {% if block.settings.caption and block.settings.caption != "" %}
               <div class="lookbook-caption">
                 {{ block.settings.caption }}
                 {% if block.settings.product1 != "" %}
