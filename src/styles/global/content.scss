@@ -1,10 +1,13 @@
 .site-content {
   color: $color-primary;
   padding: 16px;
+  position: relative;
+  padding-bottom: 100px;
 
   @media screen and (min-width: 1024px) {
-    padding: 30px 30px 30px 268px;
+    padding: 30px 30px 100px;
     min-height: 100vh;
+    margin-left: 268px;
   }
 }
 
