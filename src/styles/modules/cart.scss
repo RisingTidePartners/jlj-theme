@@ -20,6 +20,17 @@
   }
 }
 
+.template-index,
+.template-page-lookbook {
+  .cart-link {
+    color: #fff;
+
+    svg g {
+      fill: #fff;
+    }
+  }
+}
+
 .template-cart .cart-drawer {
   display: none;
 }
