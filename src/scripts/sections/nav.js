@@ -15,7 +15,7 @@ theme.initNav = function() {
 
   dropdownToggles.forEach(function(el, i) {
     el.menuToToggle = dropdowns[i]
-    el.onclick = function() {
+    el.onclick = function(e) {
       if(this.menuToToggle.style.maxHeight.includes('px')) {
         this.menuToToggle.style.maxHeight = null;
       } else {
@@ -24,6 +24,8 @@ theme.initNav = function() {
         });
         this.menuToToggle.style.maxHeight = this.menuToToggle.scrollHeight + 'px';
       }
+
+      e.preventDefault();
     }
   });
 
