@@ -37,11 +37,6 @@ theme.initLookbook = function() {
     }, 400)
   }
 
-  if (lookbookSlides) {
-    currentSlideIndex = 0
-    loadSlide()
-  }
-
   if (nextSlideButton) {
     nextSlideButton.onclick = function(e) {
       currentSlideIndex++
@@ -56,5 +51,10 @@ theme.initLookbook = function() {
       loadSlide(currentSlideIndex)
       e.preventDefault()
     }
+  }
+
+  if (lookbookSlides.length > 1) {
+    currentSlideIndex = 0
+    loadSlide()
   }
 }
