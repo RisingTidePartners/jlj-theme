@@ -1,9 +1,14 @@
 .template-page-lookbook {
   background: #000;
   color: #fff;
+  padding-bottom: 100px;
 
   .site-footer {
     display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 0;
   }
 }
 
