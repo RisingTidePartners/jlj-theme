@@ -4,6 +4,7 @@
   text-transform: uppercase;
   font-size: 10px;
   min-height: 24px;
+  display: none;
 
   a {
     color: $color-primary;
@@ -13,5 +14,9 @@
   .breadcrumb-separator {
     margin: 0 8px;
     opacity: 0.5;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: block;
   }
 }
