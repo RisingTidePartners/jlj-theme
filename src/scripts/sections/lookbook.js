@@ -1,7 +1,7 @@
 theme.initLookbook = function() {
   lookbookSlides = document.querySelectorAll('[data-js-lookbook-slide]')
-  nextSlideButton = document.querySelector('[data-js-next-slide')
-  prevSlideButton = document.querySelector('[data-js-prev-slide')
+  nextSlideButton = document.querySelector('[data-js-next-slide]')
+  prevSlideButton = document.querySelector('[data-js-prev-slide]')
   var currentSlideIndex
   var visibilityTimeout
 
