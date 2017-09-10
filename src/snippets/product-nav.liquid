@@ -1,0 +1,17 @@
+<nav class="breadcrumbs" role="navigation">
+{% if collection %}
+{% if collection.previous_product or collection.next_product %}
+  {% if collection.previous_product %}
+    {% capture prev_url %}{{ collection.previous_product}}{% endcapture %}
+    <a href="{{ prev_url }}">« Previous</a>
+  {% endif %}
+  {% if collection.previous_product and collection.next_product %}
+  <span class="breadcrumb-separator">|</span>
+  {% endif %}
+  {% if collection.next_product %}
+    {% capture next_url %}{{ collection.next_product}}{% endcapture %}
+    <a href="{{ next_url }}">Next »</a>
+  {% endif %}
+{% endif %}
+{% endif %}
+</nav>
