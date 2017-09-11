@@ -22,3 +22,14 @@
   align-items: center;
   flex-grow: 1;
 }
+
+.collection-more {
+  display: block;
+  text-align: center;
+  color: inherit;
+  margin: 40px auto;
+
+  .hidden {
+    visibility: hidden;
+  }
+}

@@ -43,11 +43,17 @@
       {% endif %}
     {% endcomment %}
   </header>
+  
+  <div class="product-grid" data-js-product-grid>
+    {% for product in collection.products %}
+      <div class="product-grid-item" id="product-{{ forloop.index | plus:paginate.current_offset }}">
+        {% include 'product-grid-item' %}
+      </div>
+    {% endfor %}
+  </div>
+    <div data-js-products-end></div>
 
-  {% assign products = collection.products %}
-  {% include 'product-grid' %}
-
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
+  {% if paginate.next %}
+   <a href="{{ paginate.next.url }}" data-js-more-link class="collection-more">Next Page</a></li>
   {% endif %}
 {% endpaginate %}

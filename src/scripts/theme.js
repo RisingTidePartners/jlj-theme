@@ -1,3 +1,5 @@
+'use strict'
+
 window.slate = window.slate || {};
 window.theme = window.theme || {};
 
@@ -15,6 +17,7 @@ window.theme = window.theme || {};
 // =require sections/product.js
 // =require sections/nav.js
 // =require sections/lookbook.js
+// =require sections/collection.js
 
 /*================ Templates ================*/
 // =require templates/customers-addresses.js

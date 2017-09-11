@@ -1,0 +1,48 @@
+<a href="{{ product.url | within: collection }}">
+  <img src="{{ product.featured_image.src | img_url: '600x600' }}" 
+       alt="{{ product.featured_image.alt | escape }}"
+       srcset="{{ product.featured_image.src | img_url: '2048x2048'}} 2048w,
+               {{ product.featured_image.src | img_url: '1024x1024'}} 1024w,
+               {{ product.featured_image.src | img_url: '600x600'}} 600w,
+               {{ product.featured_image.src | img_url: '480x480'}} 480w,
+               {{ product.featured_image.src | img_url: '240x240'}} 480w"
+       sizes="(min-width: 1120px) 33vw, 50vw">
+</a>
+
+<div class="product-grid-item-info">
+  <p class="product-grid-item-title">
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </p>
+  <p class="product-grid-item-price">
+    {% if product.compare_at_price > product.price %}
+
+      {% if product.price_varies %}
+        {%- assign sale_price = product.price | money -%}
+        {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+      {% else %}
+        {{ 'products.product.on_sale' | t }}
+        {{ product.price | money }}
+      {% endif %}
+
+    {% else %}
+
+      {% if product.price_varies %}
+        {%- assign price = product.price | money -%}
+        {{ 'products.product.from_text_html' | t: price: price }}
+      {% else %}
+        {{ product.price | money }}
+      {% endif %}
+
+    {% endif %}
+
+    {% if product.compare_at_price > product.price %}
+      <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+      <s>{{ product.compare_at_price | money }}</s>
+    {% endif %}
+
+    {% unless product.available %}
+      {{ 'products.product.sold_out' | t }}
+    {% endunless %}
+  </p>
+</div>
+
