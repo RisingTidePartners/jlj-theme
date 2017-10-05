@@ -22,3 +22,7 @@ html {
     opacity: 0.8;
   }
 }
+
+body.nav-open {
+  overflow: hidden;
+}

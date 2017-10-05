@@ -31,5 +31,6 @@ theme.initNav = function() {
 
   $navToggle.click(function(event) {
     $navContainer.toggleClass('visible');
+    $('body').toggleClass('nav-open');
   });
 }

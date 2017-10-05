@@ -8,6 +8,9 @@
   background: $color-primary;
   padding: 30px;
   font-size: 110%;
+  overflow: auto;
+  max-height: 100%;
+  -webkit-overflow-scroll: touch;
 
   &.visible {
     display: block;
@@ -100,10 +103,6 @@
 }
 
 .social-icons {
-  position: absolute;
-  bottom: 30px;
-  margin: 0;
-
   a {
     opacity: 0.7;
     transiton: opacity 0.2s;
@@ -116,6 +115,12 @@
   li {
     display: inline-block;
     margin: 0 12px 0 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    position: absolute;
+    bottom: 30px;
+    margin: 0;
   }
 }
 
