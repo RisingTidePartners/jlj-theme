@@ -9,7 +9,7 @@ theme.initNav = function() {
   // jQuery actually can't do this elegantly
 
   if (activeNav) {
-    activeNav.style.maxHeight = activeNav.scrollHeight + 'px';
+    activeNav.style.maxHeight = activeNav.scrollHeight * 1.11 + 'px';
     activeNavWrap.classList.remove('site-nav--initial');
   }
 
