@@ -23,6 +23,18 @@ html {
   }
 }
 
+.icon.icon-x {
+  display: none;
+}
+
 body.nav-open {
   overflow: hidden;
+
+  .icon-x {
+    display: inline-block;
+  }
+
+  .icon-menu {
+    display: none;
+  }
 }
