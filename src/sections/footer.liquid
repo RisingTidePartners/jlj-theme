@@ -1,15 +1,12 @@
 <footer class="site-footer">
-  {%- assign footer_linklist = section.settings.footer_linklist -%}
-  {% if linklists[footer_linklist].links.size > 0 %}
-    <ul>
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
   <div>
-    {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}
+    {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}, LLC
+    {%- assign footer_linklist = section.settings.footer_linklist -%}
+    {% if linklists[footer_linklist].links.size > 0 %}
+        {% for link in linklists[footer_linklist].links %}
+         <a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+    {% endif %}
   </div>
 </footer>
 

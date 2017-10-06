@@ -13,5 +13,13 @@
 
   a {
     color: inherit;
-  }  
+    text-decoration: none;
+    margin-left: 4px;
+
+    &::before {
+      content: '|';
+      display: inline-block;
+      margin-right: 4px;
+    }
+  }
 }
