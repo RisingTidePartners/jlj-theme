@@ -1,5 +1,3 @@
-'use strict'
-
 window.slate = window.slate || {};
 window.theme = window.theme || {};
 
