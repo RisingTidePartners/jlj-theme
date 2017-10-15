@@ -16,7 +16,7 @@ theme.initNav = function() {
   dropdownToggles.forEach(function(el, i) {
     el.menuToToggle = dropdowns[i]
     el.onclick = function(e) {
-      if(this.menuToToggle.style.maxHeight.includes('px')) {
+      if(this.menuToToggle.style.maxHeight.indexOf('px') >= 0) {
         this.menuToToggle.style.maxHeight = null;
       } else {
         dropdowns.forEach(function(el) {

@@ -21,6 +21,11 @@ window.theme = window.theme || {};
 // =require templates/customers-addresses.js
 // =require templates/customers-login.js
 
+(function () {
+    if ( typeof NodeList.prototype.forEach === "function" ) return false;
+    NodeList.prototype.forEach = Array.prototype.forEach;
+})();
+
 $(document).ready(function() {  
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
