@@ -1,4 +1,5 @@
 theme.initLookbook = function() {
+  var lookbookContainer = document.querySelector('[data-js-lookbook-container]')
   var lookbookSlides = document.querySelectorAll('[data-js-lookbook-slide]')
   var nextSlideButton = document.querySelector('[data-js-next-slide]')
   var prevSlideButton = document.querySelector('[data-js-prev-slide]')
@@ -39,6 +40,7 @@ theme.initLookbook = function() {
 
     visibilityTimeout = setTimeout(function() {
       currentSlide.classList.add('visible')
+      lookbookContainer.style.height = window.getComputedStyle(currentSlide).height
     }, 400)
   }
 
