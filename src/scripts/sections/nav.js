@@ -11,7 +11,7 @@ theme.initNav = function() {
     var activeNav = document.querySelector('[js-nav-active] [data-js-dropdown]')
 
     if (activeNav) {
-      activeNav.style.maxHeight = activeNav.scrollHeight * 1.11 + 'px';
+      activeNav.style.maxHeight = activeNav.scrollHeight + 'px';
       activeNavWrap.classList.remove('site-nav--initial');
     }
   }
