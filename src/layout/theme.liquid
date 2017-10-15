@@ -60,7 +60,21 @@
   {{ content_for_header }}
 
   <script src="https://use.typekit.net/nzm7agr.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script type="text/javascript">
+   try {
+     Typekit.load({
+       loading: function() {
+
+       },
+       active: function() {
+         window.setNav()
+       },
+       inactive: function() {
+         window.setNav()
+       }
+     })
+   } catch(e) {}
+   </script>
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template | handle }}">

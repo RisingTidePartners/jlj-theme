@@ -1,16 +1,19 @@
 theme.initNav = function() {
   var dropdownToggles = document.querySelectorAll('[data-js-dropdown-toggle]');
   var dropdowns = document.querySelectorAll('[data-js-dropdown]');
-  var activeNavWrap = document.querySelector('[js-nav-active]')
-  var activeNav = document.querySelector('[js-nav-active] [data-js-dropdown]')
   var $navContainer = $('[data-js-site-nav-container]');
   var $navToggle = $('[data-js-site-nav-toggle]');
 
   // jQuery actually can't do this elegantly
 
-  if (activeNav) {
-    activeNav.style.maxHeight = activeNav.scrollHeight * 1.11 + 'px';
-    activeNavWrap.classList.remove('site-nav--initial');
+  window.setNav = function() {
+    var activeNavWrap = document.querySelector('[js-nav-active]')
+    var activeNav = document.querySelector('[js-nav-active] [data-js-dropdown]')
+
+    if (activeNav) {
+      activeNav.style.maxHeight = activeNav.scrollHeight * 1.11 + 'px';
+      activeNavWrap.classList.remove('site-nav--initial');
+    }
   }
 
   dropdownToggles.forEach(function(el, i) {
