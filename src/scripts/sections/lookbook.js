@@ -6,6 +6,10 @@ theme.initLookbook = function() {
   var currentSlideIndex
   var visibilityTimeout
 
+  // check for IE to add a dumb hack that breaks in other browsers
+  var ua = window.navigator.userAgent;
+  var isIe = ua.indexOf("MSIE ");
+
   function loadSlide() {
     var imgLoaded = false
     clearTimeout(visibilityTimeout)
@@ -30,6 +34,10 @@ theme.initLookbook = function() {
     if (img) {
       img.setAttribute('src', img.getAttribute('data-src'))
       img.setAttribute('srcset', img.getAttribute('data-srcset'))
+      
+      if (isIe) {
+        img.style.width = "100%"
+      }
       
       img.onload = function() {
         currentSlide.classList.add('loaded')
