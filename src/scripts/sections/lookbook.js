@@ -25,10 +25,15 @@ theme.initLookbook = function() {
     }
 
     var img = currentSlide.querySelector('[data-js-lookbook-image]')
-    img.setAttribute('src', img.getAttribute('data-src'))
-    img.setAttribute('srcset', img.getAttribute('data-srcset'))
-    
-    img.onload = function() {
+
+    if (img) {
+      img.setAttribute('src', img.getAttribute('data-src'))
+      img.setAttribute('srcset', img.getAttribute('data-srcset'))
+      
+      img.onload = function() {
+        currentSlide.classList.add('loaded')
+      }
+    } else {
       currentSlide.classList.add('loaded')
     }
 
