@@ -17,6 +17,11 @@
   position: relative;
   min-height: 100vh;
   width: 100%;
+  margin-bottom: 60px;
+
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 0;
+  }
 }
 
 .lookbook-slide {
@@ -208,4 +213,5 @@
 .lookbook-credits-slide {
   height: 100%;
   text-align: center;
+  justify-content: center;
 }

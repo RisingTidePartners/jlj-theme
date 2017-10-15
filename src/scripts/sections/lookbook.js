@@ -40,7 +40,7 @@ theme.initLookbook = function() {
 
     visibilityTimeout = setTimeout(function() {
       currentSlide.classList.add('visible')
-      lookbookContainer.style.height = window.getComputedStyle(currentSlide).height
+      lookbookContainer.style.height = currentSlide.scrollHeight + 'px'
     }, 400)
   }
 
