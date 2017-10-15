@@ -1,0 +1,63 @@
+.template-page-about {
+  background: #000;
+  
+  .site-content {
+    color: #fff;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .site-content {
+      display: flex;
+    }
+
+    .shopify-section {
+      display: flex;
+
+      @media screen and (min-width: 1024px) {
+        margin-right: 177px;
+      }
+    }
+  }
+}
+
+.about-content {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.about-img {
+  margin: 0 auto;
+  max-width: 600px;
+  display: block;
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: auto;
+    margin: 0;
+    max-width: none;
+  }
+}
+
+.about-text {
+  margin-left: 0;
+  max-width: 490px;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto 50px;
+
+  p {
+    text-align: left;
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 1024px) and (min-height: 1000px) {
+    margin-top: 500px;
+  } 
+}
