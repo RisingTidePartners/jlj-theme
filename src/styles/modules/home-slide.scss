@@ -32,21 +32,16 @@
 
   @media screen and (max-width: 1023px) {
     .site-nav-container {
-      display: block;
+      display: flex;
       background: none;
       margin-top: 105px;
-      margin-bottom: 120px;
-      padding-bottom: 100px;
+      margin-bottom: 100px;
       padding-top: 0;
     }
 
     .site-nav {
       margin-top: 0;
     }
-  }
-
-  .social-icons {
-    display: none;
   }
 
   .sidebar-menu-toggle {
