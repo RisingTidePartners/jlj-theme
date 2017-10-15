@@ -149,3 +149,44 @@
     }
   }
 }
+
+.lookbook-cover-slide {
+  top: 0;
+  bottom: 0;
+
+  .lookbook-cover-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: no-repeat center center / cover;
+    left: -100px;
+    right: -100px;
+
+    &::after {
+      content: '';
+      height: 200px;
+      background: black;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  img {
+    display: none;
+  }
+
+  .lookbook-cover-title {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    text-align: center;
+  }
+}

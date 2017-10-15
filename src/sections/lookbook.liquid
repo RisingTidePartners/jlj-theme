@@ -66,6 +66,58 @@
             {% endif %}
           </div>
         {% endif %}
+
+
+      {% when 'lookbook-cover' %}
+
+        {% if current_page == true %}
+          <style>
+            #cover-{{ block.id }} {
+              background-image: url('{{ block.settings.image | img_url: "1024x1024" }}');
+            }
+
+            @media screen and (min-width: 1024px) {
+              #cover-{{ block.id }} {
+                background-image: url('{{ block.settings.image | img_url: "2048x2048" }}');
+              }
+            }
+          </style>
+
+          <div class="lookbook-slide lookbook-cover-slide" data-js-lookbook-slide>
+            <div class="lookbook-cover-image" id="cover-{{ block.id }}">
+              <img
+                data-js-lookbook-image
+                data-src="{{ block.settings.image | img_url: '1024x1024' }}"
+                data-srcset="{{ block.settings.image | img_url: '2048x2048'}} 2048w,
+                {{ block.settings.image | img_url: '1024x1024'}} 1024w,
+                {{ block.settings.image | img_url: '600x600'}} 600w,
+                {{ block.settings.image | img_url: '480x480'}} 480w"
+              >
+            </div>
+            
+            {% if block.settings.title and block.settings.title != "" %}
+              <div class="lookbook-cover-title">
+                <h1>{{ block.settings.title }}</h1>
+
+                {% if block.settings.subtitle and block.settings.subtitle != "" %}
+                  <hr>
+                  <h4>{{ block.settings.subtitle }}</h4>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+
+      {% when 'lookbook-credits' %}
+
+      {% if current_page == true %}
+        <div class="lookbook-slide" data-js-lookbook-slide>
+          <div class="lookbook-credits">
+            {{ block.settings.credits }}
+          </div>
+        </div>
+      {% endif %}
       
     {% endcase %}
   </div>
@@ -122,6 +174,38 @@
             "id": "product5",
             "type": "product",
             "label": "Featured Product 5"
+          }
+        ]
+      },
+      {
+        "type": "lookbook-cover",
+        "name": "Lookbook Cover",
+        "settings": [
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "title",
+            "type": "text",
+            "label": "Title"
+          },
+          {
+            "id": "subtitle",
+            "type": "text",
+            "label": "Subtitle"
+          }
+        ]
+      },
+      {
+        "type": "lookbook-credits",
+        "name": "Lookbook Credits",
+        "settings": [
+          {
+            "id": "credits",
+            "type": "richtext",
+            "label": "Credits"
           }
         ]
       },
