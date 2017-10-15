@@ -35,6 +35,7 @@ theme.Product = (function() {
       onZoomOut: function() {
         $(selectors.zoom).removeClass('zoomed');
       },
+      touch: false,
     });
   }
 
