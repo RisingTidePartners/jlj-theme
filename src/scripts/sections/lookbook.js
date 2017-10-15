@@ -6,9 +6,10 @@ theme.initLookbook = function() {
   var currentSlideIndex
   var visibilityTimeout
 
-  // check for IE to add a dumb hack that breaks in other browsers
-  var ua = window.navigator.userAgent;
-  var isIe = ua.indexOf("MSIE ");
+  // check for IE11 to add a dumb hack that breaks in other browsers
+  var ua = window.navigator.userAgent
+  var isIe = ua.indexOf("Trident/7.0") > 0
+  console.log(ua, isIe)
 
   function loadSlide() {
     var imgLoaded = false
