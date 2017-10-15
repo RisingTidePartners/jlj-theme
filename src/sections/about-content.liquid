@@ -1,0 +1,35 @@
+<div class="about-content">
+  <h1>{{ section.settings.title }}</h1>
+  <img 
+    src="{{ section.settings.image | img_url: '1024x1024' }}"
+    srcset="{{ section.settings.image | img_url: '2048x2048'}} 2048w,
+    {{ section.settings.image | img_url: '1024x1024'}} 1024w,
+    {{ section.settings.image | img_url: '600x600'}} 600w,
+    {{ section.settings.image | img_url: '480x480'}} 480w"
+  >
+  <div>{{ section.settings.body_copy }}</div>
+</footer>
+
+{% schema %}
+  {
+    "name": "About Content",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title"
+      },
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "body_copy",
+        "type": "richtext",
+        "label": "Content"
+      }
+    ]
+  }
+
+{% endschema %}
