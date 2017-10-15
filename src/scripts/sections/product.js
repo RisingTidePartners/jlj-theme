@@ -101,6 +101,8 @@ theme.Product = (function() {
         e.preventDefault();
       });
     });
+
+    resetZoom();
   }
 
   Product.prototype = $.extend({}, Product.prototype, {
