@@ -49,7 +49,7 @@
   transition: 0.3s transform cubic-bezier(.3,0,.06,.87);
   padding: 16px;
   overflow: auto;
-  -webkit-overflow-scroll: touch;
+  -webkit-overflow-scrolling: touch;
 
   &.cart-open {
     transform: translateX(0);

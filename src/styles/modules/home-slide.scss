@@ -1,10 +1,11 @@
 .home-slide {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background: no-repeat center center / cover;
+  z-index: 0;
 
   h2 {
     position: absolute;
@@ -26,21 +27,40 @@
 }
 
 .template-index {
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
   .site-footer {
     display: none;
+  }
+
+  .site-nav-container {
+    z-index: 5;
   }
 
   @media screen and (max-width: 1023px) {
     .site-nav-container {
       display: flex;
       background: none;
-      margin-top: 105px;
-      margin-bottom: 100px;
       padding-top: 0;
+      position: static;
+      max-height: 56vh;
+      margin-top: 15px;
+      margin-left: -10px;
+      margin-right: -30px;
+      padding-bottom: 0;
     }
 
     .site-nav {
       margin-top: 0;
+    }
+
+    .social-icons {
+      padding-top: 30px;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
   }
 
