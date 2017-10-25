@@ -1,3 +1,3 @@
 # jlj-theme
 
-https://github.com/Shopify/slate
+Built on https://github.com/Shopify/slate
